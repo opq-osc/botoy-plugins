@@ -8,14 +8,9 @@ from botoy import Action, EventMsg, GroupMsg
 from botoy.collection import MsgTypes
 from botoy.decorators import ignore_botself, these_msgtypes
 from botoy.refine import refine_group_revoke_event_msg
+from botoy.util import get_cache_dir
 
-cacheDir = pathlib.Path("botoy-cache")
-if not cacheDir.exists():
-    cacheDir.mkdir()
-
-db_cache_dir = cacheDir / "for_stop_revoke_plugin"
-if not db_cache_dir.exists():
-    db_cache_dir.mkdir()
+db_cache_dir = get_cache_dir("for_stop_revoke_plugin")
 
 
 class DB:
@@ -150,8 +145,7 @@ def receive_events(ctx: EventMsg):
         ctx.CurrentQQ, host=ctx._host, port=ctx._port  # pylint: disable=W0212
     )
     if msg_type == MsgTypes.TextMsg:
-        action.sendGroupText(group_id, f"{user_name}想撤回以下内容: ")
-        action.sendGroupText(group_id, content)
+        action.sendGroupText(group_id, f"{user_name}想撤回以下内容: \n{content}")
     elif msg_type == MsgTypes.PicMsg:
         pic_data = json.loads(content)
         action.sendGroupText(group_id, f"{user_name}想撤回以下内容: ")
