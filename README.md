@@ -16,10 +16,10 @@
 无特殊说明，说明插件可以直接运行
 
 ```shell
+pip install -r requirements.txt
 botoy run
 ```
 
 # LICENSE
 
 MIT
-
