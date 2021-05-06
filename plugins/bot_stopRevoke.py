@@ -5,9 +5,9 @@ from collections import defaultdict
 
 from botoy import Action, EventMsg, GroupMsg
 from botoy.collection import MsgTypes
+from botoy.contrib import get_cache_dir
 from botoy.decorators import ignore_botself, these_msgtypes
 from botoy.refine import refine_group_revoke_event_msg
-from botoy.contrib import get_cache_dir
 
 db_cache_dir = get_cache_dir("for_stop_revoke_plugin")
 
