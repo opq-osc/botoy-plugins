@@ -107,10 +107,13 @@ def _():
     options = ctx.Content[6:].split("|")
     if len(options) == 2:
         honey.finish(generate(*options))
-    else:
-        name = session.want("name", "你想给你女朋友的称呼是啥?", timeout=60)
-        event = session.want("event", "为了啥事道歉呢?", timeout=60)
-        if name is None or event is None:
-            honey.finish()
-        else:
-            honey.finish(generate(name, event))
+
+    name = session.want("name", "你想给你女朋友的称呼是啥?", timeout=60)
+    if name is None:
+        honey.finish()
+
+    event = session.want("event", "为了啥事道歉呢?", timeout=60)
+    if event is None:
+        honey.finish()
+
+    honey.finish(generate(name, event))
