@@ -3,3 +3,4 @@
 | joinGroupAudit | 进群验证码                               |
 | autoRepeat     | 自动消息加一功能，支持文字消息和图片消息 |
 | stopRevoke     | 群防撤回，无额外依赖                     |
+| whatis         | 查询缩写意思, 格式: 查询+{缩写} 或 查询  |
