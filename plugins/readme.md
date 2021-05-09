@@ -36,6 +36,8 @@
 
 `botoy.json`配置及默认值:
 
+- `5000choyen_api`: [图片生成服务端](https://github.com/fz6m/5000choyen-server)接口地址
+
 ```json
 {
   "5000choyen_api": "http://127.0.0.1:4000/api/v1/gen"
