@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # joinGroupAudit
 
 进群验证码
