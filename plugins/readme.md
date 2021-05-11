@@ -64,3 +64,12 @@
 查看服务器当前运行信息
 
 命令：sysinfo
+
+# phlogo
+
+快速生成 PornHub 风格的 logo
+
+格式:
+
+横向：ph Hello world
+竖直：ph Hello world 1
