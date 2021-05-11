@@ -1,3 +1,4 @@
 botoy
 pillow
 aiofiles
+qrcode
