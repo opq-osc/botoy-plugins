@@ -6,7 +6,7 @@ import re
 from botoy import GroupMsg
 from botoy.collection import MsgTypes
 from botoy.contrib import get_cache_dir
-from botoy.decorators import ignore_botself, these_msgtypes
+from botoy.decorators import ignore_botself, on_regexp, these_msgtypes
 from botoy.sugar import Picture
 
 recipe_dir = get_cache_dir("what do you want to eat")
@@ -14,17 +14,16 @@ recipe_dir = get_cache_dir("what do you want to eat")
 
 @ignore_botself
 @these_msgtypes(MsgTypes.TextMsg)
+@on_regexp(r"(今天|[早中午晚][上饭餐]|夜宵)吃(什么|啥|点啥)")
 def receive_group_msg(ctx: GroupMsg):
-    match = re.match(r"(今天|[早中午晚][上饭餐]|夜宵)吃(什么|啥|点啥)", ctx.Content)
-    if match:
-        time = match.group(1).strip()
-        recipes = os.listdir(recipe_dir)
-        if recipes:
-            choose = recipe_dir / random.choice(recipes)
-            Picture(
-                pic_path=choose,
-                text=f"建议你{time}吃: {choose.name[:-4]}",
-            )
+    time = ctx._match.group(1).strip()
+    recipes = os.listdir(recipe_dir)
+    if recipes:
+        choose = recipe_dir / random.choice(recipes)
+        Picture(
+            pic_path=choose,
+            text=f"建议你{time}吃: {choose.name[:-4]}",
+        )
 
 
 if __name__ == "__main__":
