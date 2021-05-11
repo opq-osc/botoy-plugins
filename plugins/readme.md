@@ -89,3 +89,9 @@
 该插件没有命令，只要机器人发送的消息中包含关键字 KEYWORD(`autorevoke_keyword`)，则撤回，
 可以指定发出去多久后撤回: KEYWORD[多少秒], 如 KEYWORD[20]
 表示该条消息 20s 后自动撤回
+
+# toPinYin
+
+汉字转拼音
+
+格式： 拼音{汉字}
