@@ -43,7 +43,7 @@ class _DB:
     def unsubscribe(self, gid: int, mid: int) -> bool:
         """返回False表示未订阅"""
         self.cur.execute(f"SELECT * FROM subscribed WHERE gid={gid} AND mid={mid}")
-        if self.cur.fetchall():
+        if not self.cur.fetchall():
             return False
         self.cur.execute(f"DELETE FROM subscribed WHERE gid={gid} AND mid={mid}")
         self.con.commit()
@@ -221,15 +221,23 @@ def check_subscription():
         if latest_video is not None:
             # print(latest_video)
             if DB.judge_updated(mid, latest_video.aid):
+                upinfo = API.get_up_info(mid)
+                if upinfo is not None:
+                    info = "UP主<{}>发布了新视频!\n{}\n{}\n{}".format(
+                        upinfo.name,
+                        latest_video.title,
+                        latest_video.description,
+                        latest_video.bvid,
+                    )
+                else:
+                    info = "UP主<{}>发布了新视频!\n{}\n{}\n{}".format(
+                        mid,
+                        latest_video.title,
+                        latest_video.description,
+                        latest_video.bvid,
+                    )
                 for group in DB.get_gids_by_mid(mid):
                     if action is not None:
                         action.sendGroupPic(
-                            group,
-                            content="UP主<{}>发布了新视频!\n{}\n{}\n{}".format(
-                                latest_video.name,
-                                latest_video.title,
-                                latest_video.description,
-                                latest_video.bvid,
-                            ),
-                            picUrl=latest_video.pic,
+                            group, content=info, picUrl=latest_video.pic
                         )
