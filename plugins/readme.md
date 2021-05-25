@@ -1,3 +1,5 @@
+## 无特殊说明的说明无需配置，如有需求请改源码
+
 # joinGroupAudit
 
 进群验证码
@@ -118,3 +120,11 @@
   "amusing_language_matrices": ["唱", "跳", "rap", "篮球", "鸡你太美"]
 }
 ```
+
+# bilibili video subscriber
+
+订阅 B 站 UP 主视频投稿
+
+订阅：哔哩视频订阅+{UID}
+取消订阅：哔哩视频取消+{UID}
+查看当前群订阅列表：哔哩视频列表
