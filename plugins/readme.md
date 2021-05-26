@@ -1,59 +1,59 @@
 **无特殊说明的说明无需配置，如有需求请改源码**
 
 <!--ts-->
-* [joinGroupAudit](#joingroupaudit)
-* [autoRepeat](#autorepeat)
-* [stopRevoke](#stoprevoke)
-* [whatis](#whatis)
-* [ApologizeToGirlfriend](#apologizetogirlfriend)
-* [cleanGroupZombie](#cleangroupzombie)
-* [5000choyen](#5000choyen)
-* [niubi](#niubi)
-* [what do you want to eat](#what-do-you-want-to-eat)
-* [sysinfo](#sysinfo)
-* [phlogo](#phlogo)
-* [autoRevoke](#autorevoke)
-* [toPinYin](#topinyin)
-* [generate Qrcode](#generate-qrcode)
-* [amusing language](#amusing-language)
-* [bilibili video subscriber](#bilibili-video-subscriber)
-* [weirdfonts](#weirdfonts)
+* [joinGroupAudit(进群验证码)](#joingroupaudit进群验证码)
+* [autoRepeat(自动消息加一)](#autorepeat自动消息加一)
+* [stopRevoke(群防撤回)](#stoprevoke群防撤回)
+* [whatis(查询缩写意思)](#whatis查询缩写意思)
+* [ApologizeToGirlfriend(给女朋友道歉信)](#apologizetogirlfriend给女朋友道歉信)
+* [cleanGroupZombie(清理僵尸)](#cleangroupzombie清理僵尸)
+* [5000choyen(5000 兆元字体风格图片)](#5000choyen5000-兆元字体风格图片)
+* [niubi(吹牛皮)](#niubi吹牛皮)
+* [what do you want to eat(吃啥?)](#what-do-you-want-to-eat吃啥)
+* [sysinfo(服务器状态信息)](#sysinfo服务器状态信息)
+* [phlogo(PornHub 风格的 logo)](#phlogopornhub-风格的-logo)
+* [autoRevoke(自动撤回)](#autorevoke自动撤回)
+* [toPinYin(汉字转拼音)](#topinyin汉字转拼音)
+* [generate Qrcode(生成二维码)](#generate-qrcode生成二维码)
+* [amusing language(生成和解码瞎叫字符)](#amusing-language生成和解码瞎叫字符)
+* [bilibili video subscriber(订阅 B 站 UP 主视频投稿)](#bilibili-video-subscriber订阅-b-站-up-主视频投稿)
+* [weirdfonts(花体字符)](#weirdfonts花体字符)
 
-<!-- Added by: wongxy, at: Wed May 26 13:35:00 CST 2021 -->
+<!-- Added by: wongxy, at: Wed May 26 13:47:01 CST 2021 -->
 
 <!--te-->
 
-# joinGroupAudit
+# joinGroupAudit(进群验证码)
 
 进群验证码
 
-# autoRepeat
+# autoRepeat(自动消息加一)
 
 自动消息加一功能，支持文字消息和图片消息
 
-# stopRevoke
+# stopRevoke(群防撤回)
 
 群防撤回，无额外依赖
 
-# whatis
+# whatis(查询缩写意思)
 
 查询缩写意思
 
 格式: 查询+{缩写} 或 查询
 
-# ApologizeToGirlfriend
+# ApologizeToGirlfriend(给女朋友道歉信)
 
 生成给女朋友道歉信.
 
 格式：给女朋友道歉{名}|{事情} 或 直接发送 给女朋友道歉 (接受私聊)
 
-# cleanGroupZombie
+# cleanGroupZombie(清理僵尸)
 
 清理长时间不发言的僵尸
 
 管理员发送 清理僵尸 或 清理僵尸+{人数} 清理操作需要机器人是管理员
 
-# 5000choyen
+# 5000choyen(5000 兆元字体风格图片)
 
 5000 兆元字体风格图片生成
 
@@ -69,13 +69,13 @@
 }
 ```
 
-# niubi
+# niubi(吹牛皮)
 
 吹某个人的牛皮
 
 使用: 艾特一个人并发送文字 nb
 
-# what do you want to eat
+# what do you want to eat(吃啥?)
 
 吃啥？我帮你选!
 
@@ -84,13 +84,13 @@
 使用前需先运行插件文件下载菜品数据，需要安装库`pip install aiofiles`,
 如果是中途报错退出的，建议多运行几次，下载足够的菜品
 
-# sysinfo
+# sysinfo(服务器状态信息)
 
 查看服务器当前运行信息
 
 命令：sysinfo
 
-# phlogo
+# phlogo(PornHub 风格的 logo)
 
 快速生成 PornHub 风格的 logo
 
@@ -99,7 +99,7 @@
 横向：ph Hello world
 竖直：ph Hello world 1
 
-# autoRevoke
+# autoRevoke(自动撤回)
 
 自动撤回插件
 
@@ -115,19 +115,19 @@
 可以指定发出去多久后撤回: KEYWORD[多少秒], 如 KEYWORD[20]
 表示该条消息 20s 后自动撤回
 
-# toPinYin
+# toPinYin(汉字转拼音)
 
 汉字转拼音
 
 格式： 拼音{汉字}
 
-# generate Qrcode
+# generate Qrcode(生成二维码)
 
 生成二维码
 
 格式：生成二维码{内容}
 
-# amusing language
+# amusing language(生成和解码瞎叫字符)
 
 生成和解码瞎叫语言
 
@@ -145,7 +145,7 @@
 }
 ```
 
-# bilibili video subscriber
+# bilibili video subscriber(订阅 B 站 UP 主视频投稿)
 
 订阅 B 站 UP 主视频投稿
 
@@ -155,7 +155,7 @@
 
 查看当前群订阅列表：哔哩视频列表
 
-# weirdfonts
+# weirdfonts(花体字符)
 
 生成花体字符
 
