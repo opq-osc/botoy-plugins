@@ -1,4 +1,27 @@
-## 无特殊说明的说明无需配置，如有需求请改源码
+**无特殊说明的说明无需配置，如有需求请改源码**
+
+<!--ts-->
+* [joinGroupAudit](#joingroupaudit)
+* [autoRepeat](#autorepeat)
+* [stopRevoke](#stoprevoke)
+* [whatis](#whatis)
+* [ApologizeToGirlfriend](#apologizetogirlfriend)
+* [cleanGroupZombie](#cleangroupzombie)
+* [5000choyen](#5000choyen)
+* [niubi](#niubi)
+* [what do you want to eat](#what-do-you-want-to-eat)
+* [sysinfo](#sysinfo)
+* [phlogo](#phlogo)
+* [autoRevoke](#autorevoke)
+* [toPinYin](#topinyin)
+* [generate Qrcode](#generate-qrcode)
+* [amusing language](#amusing-language)
+* [bilibili video subscriber](#bilibili-video-subscriber)
+* [weirdfonts](#weirdfonts)
+
+<!-- Added by: wongxy, at: Wed May 26 13:35:00 CST 2021 -->
+
+<!--te-->
 
 # joinGroupAudit
 

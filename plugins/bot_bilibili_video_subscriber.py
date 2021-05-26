@@ -24,7 +24,7 @@ class _DB:
         self.con = sqlite3.connect(DB_PATH)
         self.cur = self.con.cursor()
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS data(mid interger primary key, aid integer);"
+            "CREATE TABLE IF NOT EXISTS data(mid interger primary key, aid integer, created integer);"
         )
         self.cur.execute(
             "CREATE TABLE IF NOT EXISTS subscribed(id integer primary key autoincrement, gid integer, mid interger);"
@@ -64,18 +64,22 @@ class _DB:
         self.cur.execute("SELECT * FROM subscribed")
         return [ret[2] for ret in self.cur.fetchall()]
 
-    def judge_updated(self, mid: int, aid: int) -> bool:
+    def judge_updated(self, mid: int, aid: int, created: int) -> bool:
         """如果更新了则返回True，并更新数据"""
         self.cur.execute(f"SELECT * FROM data WHERE mid={mid}")
         found = self.cur.fetchone()
         if found:
-            if aid > found[1]:
-                self.cur.execute(f"UPDATE data SET aid={aid} WHERE mid={mid}")
+            if created > found[2]:
+                self.cur.execute(
+                    f"UPDATE data SET aid={aid}, created={created} WHERE mid={mid}"
+                )
                 self.con.commit()
                 return True
         else:
             # 没找到说明首次更新，就不提示了
-            self.cur.execute(f"INSERT INTO data (mid, aid) VALUES ({mid}, {aid})")
+            self.cur.execute(
+                f"INSERT INTO data (mid, aid, created) VALUES ({mid}, {aid}, {created})"
+            )
             self.con.commit()
             return False
         return False
@@ -91,6 +95,7 @@ class Video(BaseModel):
     aid: int
     bvid: str
     pic: str
+    created: int
 
 
 class UPInfo(BaseModel):
@@ -215,29 +220,18 @@ def receive_group_msg(ctx: GroupMsg):
 def check_subscription():
     DB = _DB()
     for mid in DB.get_mids():
-        # print("检查UP主：", mid)
         latest_video = API.get_latest_video(mid)
         # 佛系推送，获取到了就推
         if latest_video is not None:
-            # print(latest_video)
-            if DB.judge_updated(mid, latest_video.aid):
-                upinfo = API.get_up_info(mid)
-                if upinfo is not None:
-                    info = "UP主<{}>发布了新视频!\n{}\n{}\n{}".format(
-                        upinfo.name,
-                        latest_video.title,
-                        latest_video.description,
-                        latest_video.bvid,
-                    )
-                else:
-                    info = "UP主<{}>发布了新视频!\n{}\n{}\n{}".format(
-                        mid,
-                        latest_video.title,
-                        latest_video.description,
-                        latest_video.bvid,
-                    )
-                for group in DB.get_gids_by_mid(mid):
-                    if action is not None:
+            if DB.judge_updated(mid, latest_video.aid, latest_video.created):
+                info = "UP主<{}>发布了新视频!\n{}\n{}\n{}".format(
+                    latest_video.author,
+                    latest_video.title,
+                    latest_video.description,
+                    latest_video.bvid,
+                )
+                if action is not None:
+                    for group in DB.get_gids_by_mid(mid):
                         action.sendGroupPic(
                             group, content=info, picUrl=latest_video.pic
                         )
