@@ -39,7 +39,6 @@ def _():
         if mid is None:
             keyword = ctx.Content[6:]
             ups = API.search_up_by_keyword(keyword)
-            print(ups)
             if not ups:
                 bilibili_handler.finish("未找到相关UP，请重试或修改指令内容")
             if len(ups) == 1:
@@ -51,7 +50,6 @@ def _():
                 choose = session.want(
                     "choose", "发送对应序号选择UP主:\n" + "\n".join(choose_msgs), timeout=60
                 )
-                print("choose => ", choose)
                 if isinstance(choose, str) and choose.isdigit():
                     try:
                         mid = ups[int(choose)].mid
