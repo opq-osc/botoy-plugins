@@ -245,5 +245,5 @@ def check_bangumi():
                         )
 
 
-scheduler.add_job(check_up_video, "interval", minutes=1)
+scheduler.add_job(check_up_video, "interval", minutes=5)
 scheduler.add_job(check_bangumi, "interval", minutes=10)
