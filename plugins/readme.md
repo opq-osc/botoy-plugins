@@ -16,10 +16,10 @@
 * [toPinYin(汉字转拼音)](#topinyin汉字转拼音)
 * [generate Qrcode(生成二维码)](#generate-qrcode生成二维码)
 * [amusing language(生成和解码瞎叫字符)](#amusing-language生成和解码瞎叫字符)
-* [bilibili video subscriber(订阅 B 站 UP 主视频投稿)](#bilibili-video-subscriber订阅-b-站-up-主视频投稿)
+* [bili subscriber(订阅 B 站 UP 主视频投稿 或 订阅番剧)](#bili-subscriber订阅-b-站-up-主视频投稿-或-订阅番剧)
 * [weirdfonts(花体字符)](#weirdfonts花体字符)
 
-<!-- Added by: wongxy, at: Wed May 26 13:47:01 CST 2021 -->
+<!-- Added by: wongxy, at: Sat May 29 15:55:18 CST 2021 -->
 
 <!--te-->
 
@@ -145,15 +145,17 @@
 }
 ```
 
-# bilibili video subscriber(订阅 B 站 UP 主视频投稿)
+# bili subscriber(订阅 B 站 UP 主视频投稿 或 订阅番剧)
 
-订阅 B 站 UP 主视频投稿
+B 站视频或番剧订阅
 
-订阅：哔哩视频订阅+{UID}
+订阅 UP 主：哔哩视频订阅+{UID:123} 或 哔哩视频订阅+{UP 名字}
+退订 UP 主：哔哩视频退订+{UID}
+查看已订阅 UP 主：哔哩视频列表
 
-取消订阅：哔哩视频取消+{UID}
-
-查看当前群订阅列表：哔哩视频列表
+订阅番剧：哔哩番剧订阅+{番剧名}
+退订番剧：哔哩番剧退订+{番剧 id}
+查看已订阅番剧: 哔哩番剧列表
 
 # weirdfonts(花体字符)
 
