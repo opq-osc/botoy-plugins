@@ -19,6 +19,7 @@ from botoy.session import Prompt, SessionHandler, ctx, session
 from .api import API
 from .db import DB
 from .schedule_task import check_bangumi, check_up_video
+from .utils import clean_html
 
 # 订阅逻辑
 bilibili_handler = SessionHandler()
@@ -86,7 +87,7 @@ def _():
             choose_msgs = []
             for idx, bangumi in enumerate(bangumis[:10]):
                 choose_msgs.append(
-                    f"{idx} 【{bangumi.title}】\n{bangumi.styles}\n{bangumi.desc}"
+                    f"{idx} 【{clean_html(bangumi.title)}】\n{bangumi.styles}\n{bangumi.desc}"
                 )
             choose = session.want(
                 "choose", "发送对应序号选择番剧:\n" + "\n".join(choose_msgs), timeout=60
@@ -104,7 +105,8 @@ def _():
         if db.subscribe_bangumi(ctx.FromGroupId, choose_bangumi.media_id):
             bilibili_handler.finish(
                 Prompt.group_picture(
-                    url=choose_bangumi.cover, text=f"成功订阅番剧: {choose_bangumi.title}"
+                    url=choose_bangumi.cover,
+                    text=f"成功订阅番剧: {clean_html(choose_bangumi.title)}",
                 )
             )
         else:
