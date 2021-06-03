@@ -18,8 +18,9 @@
 * [amusing language(生成和解码瞎叫字符)](#amusing-language生成和解码瞎叫字符)
 * [bili subscriber(订阅 B 站 UP 主视频投稿 或 订阅番剧)](#bili-subscriber订阅-b-站-up-主视频投稿-或-订阅番剧)
 * [weirdfonts(花体字符)](#weirdfonts花体字符)
+* [jikipedia(小鸡词典查梗)](#jikipedia小鸡词典查梗)
 
-<!-- Added by: wongxy, at: Sat May 29 15:55:18 CST 2021 -->
+<!-- Added by: wongxy, at: Fri Jun  4 00:26:25 CST 2021 -->
 
 <!--te-->
 
@@ -164,3 +165,9 @@ B 站视频或番剧订阅
 格式：花体+{可选字符串(字母或数字)}
 
 里面使用了自动撤回，需要配合 autoRevoke 插件使用，不过没有也无妨
+
+# jikipedia(小鸡词典查梗)
+
+比如查 cpdd：
+
+发送 cpdd 是啥梗、cpdd 是什么梗、查 cpdd 啥梗、cpdd 啥梗
