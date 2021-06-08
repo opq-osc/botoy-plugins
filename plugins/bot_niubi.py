@@ -1,10 +1,10 @@
 """吹某个人的牛皮 使用: 艾特一个人并发送文字nb"""
-import json
 import random
 
 from botoy import GroupMsg
 from botoy.collection import MsgTypes
 from botoy.decorators import ignore_botself, these_msgtypes
+from botoy.parser import group as gp
 from botoy.sugar import Text
 
 
@@ -174,7 +174,7 @@ def get_niubi(name):
 @ignore_botself
 @these_msgtypes(MsgTypes.AtMsg)
 def receive_group_msg(ctx: GroupMsg):
-    data = json.loads(ctx.Content)
-    nick = data["UserExt"][0]["QQNick"]
-    if "nb" in data["Content"].replace(nick, ""):
-        Text(get_niubi(nick))
+    data = gp.at(ctx)
+    if data is not None:
+        if "nb" in data.Content:
+            Text(get_niubi(data.UserExt[0].QQNick))

@@ -3,11 +3,12 @@ import io
 import random
 import time
 from threading import Lock
+from typing import Tuple
 
 from botoy import Action, EventMsg, GroupMsg
 from botoy.collection import MsgTypes
 from botoy.decorators import ignore_botself, these_msgtypes
-from botoy.refine import refine_group_join_event_msg
+from botoy.parser import event as ep
 from PIL import Image, ImageDraw, ImageFont
 
 # userID_groupID : code
@@ -509,7 +510,7 @@ AEIARABGAEgASQ==
 )
 
 
-def genCapcha() -> (int, str):
+def genCapcha() -> Tuple[int, str]:
     code = random.randint(111111, 999999)
     img = Image.new("RGB", size=(300, 120), color="#ffffff")
     draw = ImageDraw.Draw(img)
@@ -548,28 +549,28 @@ def receive_group_msg(ctx: GroupMsg):
 
 
 def receive_events(ctx: EventMsg):
-    join_ctx = refine_group_join_event_msg(ctx)
-    if join_ctx is None:
+    join_data = ep.group_join(ctx)
+    if join_data is None:
         return
-    userKey = "{}_{}".format(join_ctx.UserID, join_ctx.FromUin)
+    userKey = "{}_{}".format(join_data.UserID, ctx.FromUin)
     code, capcha = genCapcha()
     with lock:
         new_users[userKey] = code
         Action(ctx.CurrentQQ).sendGroupPic(
-            join_ctx.FromUin,
+            ctx.FromUin,
             picBase64Buf=capcha,
             content=f"请在{wait_time}分钟内发送验证码数字！否则将踢出本群！\n（验证成功才会回复提示！发送 看不清 可刷新验证码）",
-            atUser=join_ctx.UserID,
+            atUser=join_data.UserID,
         )
 
     time.sleep(wait_time * 60)
     if userKey in new_users:
         Action(ctx.CurrentQQ).sendGroupText(
-            join_ctx.FromUin,
-            content=f"由于你({join_ctx.UserName})在进群后{wait_time}分钟内未成功验证, 即将踢出本群!\n如果没踢出去，说明本机器人不是管理员，请自行退群或联系群主管理员办理退群手续!谢谢~~",
-            atUser=join_ctx.UserID,
+            ctx.FromUin,
+            content=f"由于你({join_data.UserName})在进群后{wait_time}分钟内未成功验证, 即将踢出本群!\n如果没踢出去，说明本机器人不是管理员，请自行退群或联系群主管理员办理退群手续!谢谢~~",
+            atUser=join_data.UserID,
         )
         time.sleep(1)
-        Action(ctx.CurrentQQ).driveUserAway(join_ctx.FromUin, join_ctx.UserID)
+        Action(ctx.CurrentQQ).driveUserAway(ctx.FromUin, join_data.UserID)
         with lock:
             new_users.pop(userKey)

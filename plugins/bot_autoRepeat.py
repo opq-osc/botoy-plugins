@@ -1,11 +1,11 @@
 from collections import defaultdict
-from queue import deque
+from queue import deque  # type:ignore
 from threading import Lock
 
 from botoy import GroupMsg
 from botoy import decorators as deco
 from botoy.collection import MsgTypes
-from botoy.refine import _PicGroupMsg, refine_pic_group_msg
+from botoy.parser import group as gp
 from botoy.sugar import Picture, Text
 
 # 自动消息加一功能, 支持文字消息和图片消息
@@ -43,9 +43,8 @@ def receive_group_msg(ctx: GroupMsg):
         if text_deque_dict[ctx.FromGroupId].should_repeat(text):
             Text(text)
     elif ctx.MsgType == MsgTypes.PicMsg:
-        pic_ctx: _PicGroupMsg = refine_pic_group_msg(ctx)
-        if pic_ctx is not None:
-            pics = pic_ctx.GroupPic
-            pic = pics[0]
-            if pic_deque_dict[ctx.FromGroupId].should_repeat(pic.FileMd5):
-                Picture(pic_md5=pic.FileMd5)
+        pic_data = gp.pic(ctx)
+        if pic_data:
+            pic_md5 = pic_data.GroupPic[0].FileMd5
+            if pic_deque_dict[ctx.FromGroupId].should_repeat(pic_md5):
+                Picture(pic_md5=pic_md5)

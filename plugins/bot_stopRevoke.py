@@ -7,7 +7,7 @@ from botoy import Action, EventMsg, GroupMsg
 from botoy.collection import MsgTypes
 from botoy.contrib import get_cache_dir
 from botoy.decorators import ignore_botself, these_msgtypes
-from botoy.refine import refine_group_revoke_event_msg
+from botoy.parser import event as ep
 
 db_cache_dir = get_cache_dir("for_stop_revoke_plugin")
 
@@ -101,19 +101,19 @@ def receive_group_msg(ctx: GroupMsg):
 
 
 def receive_events(ctx: EventMsg):
-    revoke_ctx = refine_group_revoke_event_msg(ctx)
-    if revoke_ctx is None:
+    revoke_data = ep.group_revoke(ctx)
+    if revoke_data is None:
         return
 
-    admin = revoke_ctx.AdminUserID
-    group_id = revoke_ctx.FromUin
-    user_id = revoke_ctx.UserID
-    msg_random = revoke_ctx.MsgRandom
-    msg_seq = revoke_ctx.MsgSeq
+    admin = revoke_data.AdminUserID
+    group_id = revoke_data.GroupID
+    user_id = revoke_data.UserID
+    msg_random = revoke_data.MsgRandom
+    msg_seq = revoke_data.MsgSeq
 
     if any(
         [
-            user_id == revoke_ctx.CurrentQQ,  # 忽略机器人自己撤回的消息
+            user_id == ctx.CurrentQQ,  # 忽略机器人自己撤回的消息
             admin != user_id,  # 忽略管理员撤回的消息
         ]
     ):
@@ -141,7 +141,7 @@ def receive_events(ctx: EventMsg):
         content,
     ) = data
     action = Action(
-        ctx.CurrentQQ, host=ctx._host, port=ctx._port  # pylint: disable=W0212
+        ctx.CurrentQQ, host=ctx._host, port=ctx._port  # type:ignore
     )
     if msg_type == MsgTypes.TextMsg:
         action.sendGroupText(group_id, f"{user_name}想撤回以下内容: \n{content}")
