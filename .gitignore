@@ -4,3 +4,6 @@ __pycache__
 REMOVED_PLUGINS
 botoy.json
 botoy-cache
+
+# for mac
+.DS_Store
