@@ -25,8 +25,9 @@
 * [baidu_ocr(百度 OCR)](#baidu_ocr百度-ocr)
 * [meiriyiwen(每日一文)](#meiriyiwen每日一文)
 * [replay(复读机 Plus)](#replay复读机-plus)
+* [bot_corona_virus(疫情订阅)](#bot_corona_virus疫情订阅)
 
-<!-- Added by: wongxy, at: Thu Jul  1 17:27:08 CST 2021 -->
+<!-- Added by: wongxy, at: Thu Jul  1 17:31:48 CST 2021 -->
 
 <!--te-->
 
@@ -211,3 +212,9 @@ botoy.json
 # replay(复读机 Plus)
 
 发送 复读机+内容(可文字，可图片)
+
+# bot_corona_virus(疫情订阅)
+
+订阅疫情最新资讯，不是数值数据。。。。。。
+
+群内发送: 疫情订阅、疫情退订
