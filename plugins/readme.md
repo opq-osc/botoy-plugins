@@ -19,8 +19,14 @@
 * [bili subscriber(订阅 B 站 UP 主视频投稿 或 订阅番剧)](#bili-subscriber订阅-b-站-up-主视频投稿-或-订阅番剧)
 * [weirdfonts(花体字符)](#weirdfonts花体字符)
 * [jikipedia(小鸡词典查梗)](#jikipedia小鸡词典查梗)
+* [versailles(凡尔赛语录)](#versailles凡尔赛语录)
+* [weather(天气)](#weather天气)
+* [bot_dl_douyin(抖音音视频下载)](#bot_dl_douyin抖音音视频下载)
+* [baidu_ocr(百度 OCR)](#baidu_ocr百度-ocr)
+* [meiriyiwen(每日一文)](#meiriyiwen每日一文)
+* [replay(复读机 Plus)](#replay复读机-plus)
 
-<!-- Added by: wongxy, at: Fri Jun  4 00:26:25 CST 2021 -->
+<!-- Added by: wongxy, at: Thu Jul  1 17:27:08 CST 2021 -->
 
 <!--te-->
 
@@ -171,3 +177,37 @@ B 站视频或番剧订阅
 比如查 cpdd：
 
 发送 cpdd 是啥梗、cpdd 是什么梗、查 cpdd 啥梗、cpdd 啥梗
+
+# versailles(凡尔赛语录)
+
+发送凡尔赛
+
+# weather(天气)
+
+天气+地名
+
+# bot_dl_douyin(抖音音视频下载)
+
+发送包含抖音视频链接的内容即可
+
+# baidu_ocr(百度 OCR)
+
+图片提取文字 格式：ocr 加图片
+
+botoy.json
+
+```json
+  "baidu_ocr_app_id" = "",
+  "baidu_ocr_api_key" = "",
+  "baidu_ocr_secret_key" = ""
+```
+
+配置项意思如键名
+
+# meiriyiwen(每日一文)
+
+每日一文：发送 好文 来读一篇好文章吧
+
+# replay(复读机 Plus)
+
+发送 复读机+内容(可文字，可图片)
