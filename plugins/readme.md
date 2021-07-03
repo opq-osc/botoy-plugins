@@ -27,8 +27,9 @@
 * [replay(复读机 Plus)](#replay复读机-plus)
 * [corona_virus(疫情订阅)](#corona_virus疫情订阅)
 * [moechat(二次元词库聊天)](#moechat二次元词库聊天)
+* [steam(steam 促销)](#steamsteam-促销)
 
-<!-- Added by: wongxy, at: Sat Jul  3 22:41:17 CST 2021 -->
+<!-- Added by: wongxy, at: Sat Jul  3 23:55:06 CST 2021 -->
 
 <!--te-->
 
@@ -239,3 +240,7 @@ botoy.json
   "moechat_groups": [] // 开启的群组
 }
 ```
+
+# steam(steam 促销)
+
+发送 steam
