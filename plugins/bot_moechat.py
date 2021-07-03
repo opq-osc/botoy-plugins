@@ -1,6 +1,7 @@
 import random
+from typing import Optional
 
-from botoy import jconfig
+from botoy import GroupMsg, jconfig
 from botoy.decorators import ignore_botself
 from botoy.session import SessionHandler, ctx, session
 
@@ -344,6 +345,10 @@ moechat = SessionHandler(
 ).receive_group_msg()
 
 
+# 因为需要获取到每次消息的昵称信息，所以session获取数据都返回原ctx
+moechat.parse(lambda ctx: ctx)
+
+
 @moechat.handle
 def _():
     if ctx.FromGroupId in GROUPS:  # type: ignore
@@ -355,11 +360,15 @@ def _():
             while True:
                 if count == 3:
                     break
-                word = session.pop("word", timeout=30)
-                if word is None:
+                new_ctx: Optional[GroupMsg] = session.pop("word", timeout=30)
+                if new_ctx is None:
                     break
-                if word in words:
-                    session.send_text(random.choice(words[word]))
+                if new_ctx.Content in words:
+                    session.send_text(
+                        random.choice(words[new_ctx.Content]).replace(
+                            "你", new_ctx.FromNickName
+                        )
+                    )
                     count = 0
                 else:
                     count += 1
@@ -368,6 +377,10 @@ def _():
         else:
 
             if ctx.Content in words and random.randint(1, 101) <= CHANCE * 100:
-                session.send_text(random.choice(words[ctx.Content]))  # type:ignore
+                session.send_text(
+                    random.choice(words[ctx.Content]).replace(
+                        "你", ctx.FromNickName  # type:ignore
+                    )
+                )
 
     moechat.finish()
