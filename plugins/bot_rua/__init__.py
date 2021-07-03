@@ -64,10 +64,10 @@ frame_dir = pathlib.Path(__file__).absolute().parent / "frames"
 
 @ignore_botself
 def receive_group_msg(ctx: GroupMsg):
-    at_data = gp.at(ctx)
+    at_data = gp.at(ctx, clean=False)
     if at_data is None:
         return
-    if at_data.Content.strip() == "rua":
+    if "rua" in at_data.Content.strip():
         user = at_data.UserExt[0].QQUid
         content = httpx.get(
             f"http://q1.qlogo.cn/g?b=qq&nk={user}&s=160", timeout=20
