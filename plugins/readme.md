@@ -25,9 +25,10 @@
 * [baidu_ocr(百度 OCR)](#baidu_ocr百度-ocr)
 * [meiriyiwen(每日一文)](#meiriyiwen每日一文)
 * [replay(复读机 Plus)](#replay复读机-plus)
-* [bot_corona_virus(疫情订阅)](#bot_corona_virus疫情订阅)
+* [corona_virus(疫情订阅)](#corona_virus疫情订阅)
+* [moechat(二次元词库聊天)](#moechat二次元词库聊天)
 
-<!-- Added by: wongxy, at: Thu Jul  1 17:31:48 CST 2021 -->
+<!-- Added by: wongxy, at: Sat Jul  3 22:41:17 CST 2021 -->
 
 <!--te-->
 
@@ -198,9 +199,11 @@ B 站视频或番剧订阅
 botoy.json
 
 ```json
+{
   "baidu_ocr_app_id" = "",
   "baidu_ocr_api_key" = "",
   "baidu_ocr_secret_key" = ""
+}
 ```
 
 配置项意思如键名
@@ -213,8 +216,26 @@ botoy.json
 
 发送 复读机+内容(可文字，可图片)
 
-# bot_corona_virus(疫情订阅)
+# corona_virus(疫情订阅)
 
 订阅疫情最新资讯，不是数值数据。。。。。。
 
 群内发送: 疫情订阅、疫情退订
+
+# moechat(二次元词库聊天)
+
+词库类型及来源：[Kyomotoi/AnimeThesaurus](https://github.com/Kyomotoi/AnimeThesaurus)
+
+1. 指定概率随机回复
+2. 发送 moechat 开始连续对话, 即概率为 100%
+
+以上概率是指对消息的检测，具体是否回复还要看词库是否包含该词条
+
+botoy.json
+
+```jsonc
+{
+  "moechat_chance": 0.2, // 概率
+  "moechat_groups": [] // 开启的群组
+}
+```
