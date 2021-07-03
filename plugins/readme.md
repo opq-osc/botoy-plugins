@@ -28,8 +28,9 @@
 * [corona_virus(疫情订阅)](#corona_virus疫情订阅)
 * [moechat(二次元词库聊天)](#moechat二次元词库聊天)
 * [steam(steam 促销)](#steamsteam-促销)
+* [rua(做一个摸头像的 gif)](#rua做一个摸头像的-gif)
 
-<!-- Added by: wongxy, at: Sat Jul  3 23:55:06 CST 2021 -->
+<!-- Added by: wongxy, at: Sun Jul  4 00:18:11 CST 2021 -->
 
 <!--te-->
 
@@ -244,3 +245,11 @@ botoy.json
 # steam(steam 促销)
 
 发送 steam
+
+# rua(做一个摸头像的 gif)
+
+作图功能插件的脑洞就没失望过，感谢大佬的创意[rua](https://github.com/pcrbot/plugins-for-Hoshino/tree/master/shebot/rua)
+
+使用：
+
+艾特一个人并发送 rua
