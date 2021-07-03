@@ -1,3 +1,4 @@
+"""steam促销信息 发送 steam"""
 import httpx
 from botoy import Text
 from botoy.decorators import equal_content, ignore_botself
