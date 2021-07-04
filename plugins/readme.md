@@ -29,8 +29,9 @@
 * [moechat(二次元词库聊天)](#moechat二次元词库聊天)
 * [steam(steam 促销)](#steamsteam-促销)
 * [rua(做一个摸头像的 gif)](#rua做一个摸头像的-gif)
+* [custom image(自定义图片.jpg)](#custom-image自定义图片jpg)
 
-<!-- Added by: wongxy, at: Sun Jul  4 00:18:11 CST 2021 -->
+<!-- Added by: wongxy, at: Sun Jul  4 15:01:17 CST 2021 -->
 
 <!--te-->
 
@@ -253,3 +254,20 @@ botoy.json
 使用：
 
 艾特一个人并发送 rua
+
+# custom image(自定义图片.jpg)
+
+[制图.jpg/.png](https://github.com/opq-osc/opqqq-plugin#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E6%83%85%E5%8C%85)
+
+1. img list => 获取图片模板列表
+2. img {name} => 设置自己要用的模板
+3. 发送 {任意文字}.jpg 或.png 即可
+
+botoy.json
+
+```jsonc
+{
+  "custom_image_block_group": [] // 屏蔽群列表
+  "custom_image_enable_emoji": true // 是否开启支持emoji
+}
+```
