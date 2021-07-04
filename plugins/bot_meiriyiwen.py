@@ -29,4 +29,3 @@ def receive_group_msg(_):
     article = get()
     if article is not None:
         Text(article)
-
