@@ -203,9 +203,9 @@ botoy.json
 
 ```json
 {
-  "baidu_ocr_app_id" = "",
-  "baidu_ocr_api_key" = "",
-  "baidu_ocr_secret_key" = ""
+  "baidu_ocr_app_id": "",
+  "baidu_ocr_api_key": "",
+  "baidu_ocr_secret_key": ""
 }
 ```
 
