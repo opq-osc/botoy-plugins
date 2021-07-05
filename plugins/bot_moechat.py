@@ -1,6 +1,8 @@
 import random
+import threading
 from typing import Optional
 
+import httpx
 from botoy import GroupMsg, jconfig
 from botoy.decorators import ignore_botself
 from botoy.session import SessionHandler, ctx, session
@@ -338,6 +340,21 @@ words = {
         "不听不听不听，反弹ヾ(≧▽≦*)o",
     ],
 }
+
+
+def sync_words():
+    global words
+    try:
+        words = httpx.get(
+            "https://cdn.jsdelivr.net/gh/Kyomotoi/AnimeThesaurus@main/data.json",
+            timeout=20,
+        ).json()
+    except Exception:
+        pass
+
+
+threading.Thread(target=sync_words, daemon=True).start()
+
 
 moechat = SessionHandler(
     ignore_botself,
