@@ -30,8 +30,9 @@
 * [steam(steam 促销)](#steamsteam-促销)
 * [rua(做一个摸头像的 gif)](#rua做一个摸头像的-gif)
 * [custom image(自定义图片.jpg)](#custom-image自定义图片jpg)
+* [russian_turntable(俄罗斯轮盘启蒙版)](#russian_turntable俄罗斯轮盘启蒙版)
 
-<!-- Added by: wongxy, at: Sun Jul  4 15:01:17 CST 2021 -->
+<!-- Added by: wongxy, at: Tue Jul  6 15:56:19 CST 2021 -->
 
 <!--te-->
 
@@ -271,3 +272,7 @@ botoy.json
   "custom_image_enable_emoji": true // 是否开启支持emoji
 }
 ```
+
+# russian_turntable(俄罗斯轮盘启蒙版)
+
+发送：开始轮盘
