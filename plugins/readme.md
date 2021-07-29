@@ -31,8 +31,9 @@
 * [rua(做一个摸头像的 gif)](#rua做一个摸头像的-gif)
 * [custom image(自定义图片.jpg)](#custom-image自定义图片jpg)
 * [russian_turntable(俄罗斯轮盘启蒙版)](#russian_turntable俄罗斯轮盘启蒙版)
+* [TaoShow(买家秀)](#taoshow买家秀)
 
-<!-- Added by: wongxy, at: Tue Jul  6 15:56:19 CST 2021 -->
+<!-- Added by: wongxy, at: Thu Jul 29 12:01:35 CST 2021 -->
 
 <!--te-->
 
@@ -276,3 +277,7 @@ botoy.json
 # russian_turntable(俄罗斯轮盘启蒙版)
 
 发送：开始轮盘
+
+# TaoShow(买家秀)
+
+买家秀：发送 来点买家秀或买家秀即可

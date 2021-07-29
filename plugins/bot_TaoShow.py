@@ -1,3 +1,4 @@
+"""买家秀：发送 来点买家秀或买家秀即可"""
 import httpx
 from botoy import GroupMsg, S
 from botoy.decorators import ignore_botself
