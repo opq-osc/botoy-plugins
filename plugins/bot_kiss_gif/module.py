@@ -4,10 +4,11 @@ from io import BytesIO
 from typing import Union
 
 import httpx
+from botoy.contrib import get_cache_dir
 from PIL import Image, ImageDraw
 
 HERE = pathlib.Path(__file__).parent.absolute()
-FRAMES_DIR = HERE / 'frames'
+FRAMES_DIR = get_cache_dir('kiss_gif') / 'frames'
 if not FRAMES_DIR.exists() or not FRAMES_DIR.is_dir():
     ARCHIVE = HERE / 'frames.zip'
     shutil.unpack_archive(ARCHIVE, FRAMES_DIR)

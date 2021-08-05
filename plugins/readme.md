@@ -1,37 +1,39 @@
 **无特殊说明的说明无需配置，如有需求请改源码**
 
 <!--ts-->
-* [joinGroupAudit(进群验证码)](#joingroupaudit进群验证码)
-* [autoRepeat(自动消息加一)](#autorepeat自动消息加一)
-* [stopRevoke(群防撤回)](#stoprevoke群防撤回)
-* [whatis(查询缩写意思)](#whatis查询缩写意思)
-* [ApologizeToGirlfriend(给女朋友道歉信)](#apologizetogirlfriend给女朋友道歉信)
-* [cleanGroupZombie(清理僵尸)](#cleangroupzombie清理僵尸)
-* [5000choyen(5000 兆元字体风格图片)](#5000choyen5000-兆元字体风格图片)
-* [niubi(吹牛皮)](#niubi吹牛皮)
-* [what do you want to eat(吃啥?)](#what-do-you-want-to-eat吃啥)
-* [sysinfo(服务器状态信息)](#sysinfo服务器状态信息)
-* [phlogo(PornHub 风格的 logo)](#phlogopornhub-风格的-logo)
-* [autoRevoke(自动撤回)](#autorevoke自动撤回)
-* [toPinYin(汉字转拼音)](#topinyin汉字转拼音)
-* [generate Qrcode(生成二维码)](#generate-qrcode生成二维码)
-* [amusing language(生成和解码瞎叫字符)](#amusing-language生成和解码瞎叫字符)
-* [bili subscriber(订阅 B 站 UP 主视频投稿 或 订阅番剧)](#bili-subscriber订阅-b-站-up-主视频投稿-或-订阅番剧)
-* [weirdfonts(花体字符)](#weirdfonts花体字符)
-* [jikipedia(小鸡词典查梗)](#jikipedia小鸡词典查梗)
-* [versailles(凡尔赛语录)](#versailles凡尔赛语录)
-* [weather(天气)](#weather天气)
-* [bot_dl_douyin(抖音音视频下载)](#bot_dl_douyin抖音音视频下载)
-* [baidu_ocr(百度 OCR)](#baidu_ocr百度-ocr)
-* [meiriyiwen(每日一文)](#meiriyiwen每日一文)
-* [replay(复读机 Plus)](#replay复读机-plus)
-* [corona_virus(疫情订阅)](#corona_virus疫情订阅)
-* [moechat(二次元词库聊天)](#moechat二次元词库聊天)
-* [steam(steam 促销)](#steamsteam-促销)
-* [rua(做一个摸头像的 gif)](#rua做一个摸头像的-gif)
-* [custom image(自定义图片.jpg)](#custom-image自定义图片jpg)
-* [russian_turntable(俄罗斯轮盘启蒙版)](#russian_turntable俄罗斯轮盘启蒙版)
-* [TaoShow(买家秀)](#taoshow买家秀)
+
+- [joinGroupAudit(进群验证码)](#joingroupaudit进群验证码)
+- [autoRepeat(自动消息加一)](#autorepeat自动消息加一)
+- [stopRevoke(群防撤回)](#stoprevoke群防撤回)
+- [whatis(查询缩写意思)](#whatis查询缩写意思)
+- [ApologizeToGirlfriend(给女朋友道歉信)](#apologizetogirlfriend给女朋友道歉信)
+- [cleanGroupZombie(清理僵尸)](#cleangroupzombie清理僵尸)
+- [5000choyen(5000 兆元字体风格图片)](#5000choyen5000-兆元字体风格图片)
+- [niubi(吹牛皮)](#niubi吹牛皮)
+- [what do you want to eat(吃啥?)](#what-do-you-want-to-eat吃啥)
+- [sysinfo(服务器状态信息)](#sysinfo服务器状态信息)
+- [phlogo(PornHub 风格的 logo)](#phlogopornhub-风格的-logo)
+- [autoRevoke(自动撤回)](#autorevoke自动撤回)
+- [toPinYin(汉字转拼音)](#topinyin汉字转拼音)
+- [generate Qrcode(生成二维码)](#generate-qrcode生成二维码)
+- [amusing language(生成和解码瞎叫字符)](#amusing-language生成和解码瞎叫字符)
+- [bili subscriber(订阅 B 站 UP 主视频投稿 或 订阅番剧)](#bili-subscriber订阅-b-站-up-主视频投稿-或-订阅番剧)
+- [weirdfonts(花体字符)](#weirdfonts花体字符)
+- [jikipedia(小鸡词典查梗)](#jikipedia小鸡词典查梗)
+- [versailles(凡尔赛语录)](#versailles凡尔赛语录)
+- [weather(天气)](#weather天气)
+- [bot_dl_douyin(抖音音视频下载)](#bot_dl_douyin抖音音视频下载)
+- [baidu_ocr(百度 OCR)](#baidu_ocr百度-ocr)
+- [meiriyiwen(每日一文)](#meiriyiwen每日一文)
+- [replay(复读机 Plus)](#replay复读机-plus)
+- [corona_virus(疫情订阅)](#corona_virus疫情订阅)
+- [moechat(二次元词库聊天)](#moechat二次元词库聊天)
+- [steam(steam 促销)](#steamsteam-促销)
+- [rua(做一个摸头像的 gif)](#rua做一个摸头像的-gif)
+- [custom image(自定义图片.jpg)](#custom-image自定义图片jpg)
+- [russian_turntable(俄罗斯轮盘启蒙版)](#russian_turntable俄罗斯轮盘启蒙版)
+- [TaoShow(买家秀)](#taoshow买家秀)
+- [kiss_gif(亲亲表情包)](#kiss_gif亲亲表情包)
 
 <!-- Added by: wongxy, at: Thu Jul 29 12:01:35 CST 2021 -->
 
@@ -281,3 +283,14 @@ botoy.json
 # TaoShow(买家秀)
 
 买家秀：发送 来点买家秀或买家秀即可
+
+# kiss_gif(亲亲表情包)
+
+原创: [SAGIRI-kawaii/sagiri-bot](https://github.com/SAGIRI-kawaii/sagiri-bot/tree/11c87b115bb1b1a79d11a8fcdbfecfdc27f2906f/statics/KissKissFrames)
+
+制作亲亲表情包
+
+1. AT 两个人，并发送 kiss
+2. AT 一个人发送 kiss
+
+提示：将 kiss 改为 kissR 可切换亲和被亲的对象
