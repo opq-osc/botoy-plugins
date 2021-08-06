@@ -292,5 +292,6 @@ botoy.json
 
 1. AT 两个人，并发送 kiss
 2. AT 一个人发送 kiss
-
+3. At一个人加一张图和kiss
+4. 发送两张图和kiss
 提示：将 kiss 改为 kissR 可切换亲和被亲的对象
