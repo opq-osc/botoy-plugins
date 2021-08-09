@@ -1,7 +1,7 @@
-'''撕开头像
+"""撕开头像
 1. AT一人发送撕
 2. 发送图片加撕
-'''
+"""
 from io import BytesIO
 from pathlib import Path
 from typing import Union

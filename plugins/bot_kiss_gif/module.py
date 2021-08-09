@@ -8,15 +8,15 @@ from botoy.contrib import get_cache_dir
 from PIL import Image, ImageDraw
 
 HERE = pathlib.Path(__file__).parent.absolute()
-FRAMES_DIR = get_cache_dir('kiss_gif') / 'frames'
+FRAMES_DIR = get_cache_dir("kiss_gif") / "frames"
 if not FRAMES_DIR.exists() or not FRAMES_DIR.is_dir():
-    ARCHIVE = HERE / 'frames.zip'
+    ARCHIVE = HERE / "frames.zip"
     shutil.unpack_archive(ARCHIVE, FRAMES_DIR)
 
 
 def get_avator(image: Union[int, str]):
     if isinstance(image, int):
-        image = f'http://q1.qlogo.cn/g?b=qq&nk={image}&s=640'
+        image = f"http://q1.qlogo.cn/g?b=qq&nk={image}&s=640"
 
     content = httpx.get(image, timeout=20).content
     return Image.open(BytesIO(content)).convert("RGBA")
@@ -35,31 +35,31 @@ def kiss(operator, target) -> BytesIO:
     operator = operator.resize((40, 40), Image.ANTIALIAS)
     size = operator.size
     r2 = min(size[0], size[1])
-    circle = Image.new('L', (r2, r2), 0)
+    circle = Image.new("L", (r2, r2), 0)
     draw = ImageDraw.Draw(circle)
     draw.ellipse((0, 0, r2, r2), fill=255)
-    alpha = Image.new('L', (r2, r2), 255)
+    alpha = Image.new("L", (r2, r2), 255)
     alpha.paste(circle, (0, 0))
     operator.putalpha(alpha)
 
     target = target.resize((50, 50), Image.ANTIALIAS)
     size = target.size
     r2 = min(size[0], size[1])
-    circle = Image.new('L', (r2, r2), 0)
+    circle = Image.new("L", (r2, r2), 0)
     draw = ImageDraw.Draw(circle)
     draw.ellipse((0, 0, r2, r2), fill=255)
-    alpha = Image.new('L', (r2, r2), 255)
+    alpha = Image.new("L", (r2, r2), 255)
     alpha.paste(circle, (0, 0))
     target.putalpha(alpha)
 
     ###########
     frames = []
     for idx in range(13):
-        target_temp = target.convert('RGBA')
-        operator_temp = operator.convert('RGBA')
+        target_temp = target.convert("RGBA")
+        operator_temp = operator.convert("RGBA")
 
-        bg = Image.open(str(FRAMES_DIR / f'{idx+1}.png'))
-        frame = Image.new('RGBA', (200, 200), (255, 255, 255))
+        bg = Image.open(str(FRAMES_DIR / f"{idx+1}.png"))
+        frame = Image.new("RGBA", (200, 200), (255, 255, 255))
         frame.paste(bg, (0, 0))
         frame.paste(target_temp, (TARGET_X[idx], TARGET_Y[idx]), target_temp)
         frame.paste(operator_temp, (OPERATOR_X[idx], OPERATOR_Y[idx]), operator_temp)
@@ -67,6 +67,6 @@ def kiss(operator, target) -> BytesIO:
 
     buffer = BytesIO()
     frames[0].save(
-        buffer, format='gif', append_images=frames, save_all=True, duration=10, loop=0
+        buffer, format="gif", append_images=frames, save_all=True, duration=10, loop=0
     )
     return buffer
