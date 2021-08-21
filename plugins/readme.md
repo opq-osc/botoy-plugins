@@ -35,8 +35,9 @@
 - [TaoShow(买家秀)](#taoshow买家秀)
 - [kiss_gif(亲亲表情包)](#kiss_gif亲亲表情包)
 - [rip_avatar(撕开头像)](#rip_avatar撕开头像)
+- [juejuezi(绝绝子生成器)](#juejuezi绝绝子生成器)
 
-<!-- Added by: wongxy, at: Mon Aug  9 20:25:26 CST 2021 -->
+<!-- Added by: wongxy, at: Sat Aug 21 11:31:44 CST 2021 -->
 
 <!--te-->
 
@@ -303,3 +304,10 @@ botoy.json
 
 1. AT 一人发送撕
 2. 发送图片加撕
+
+# juejuezi(绝绝子生成器)
+
+修改自：[kingcos/JueJueZiGenerator](https://github.com/kingcos/JueJueZiGenerator)
+
+1. 绝绝子更新: 更新词库
+2. 绝绝子+{内容}: 内容请使用空格间隔动词与名词，例如：喝奶茶 => 喝 奶茶
