@@ -13,10 +13,10 @@ from botoy.decorators import ignore_botself
 from botoy.parser import group as gp
 from PIL import Image
 
-TEMPLATE_PATH = get_cache_dir('rip_avatar') / "rip.png"
+TEMPLATE_PATH = get_cache_dir("rip_avatar") / "rip.png"
 if not TEMPLATE_PATH.exists():
     download(
-        'https://github.com/opq-osc/botoy-plugins/releases/download/rip.png/rip.png',
+        "https://github.com/opq-osc/botoy-plugins/releases/download/rip.png/rip.png",
         TEMPLATE_PATH,
     )
 TEMPLATE_PATH = str(TEMPLATE_PATH)

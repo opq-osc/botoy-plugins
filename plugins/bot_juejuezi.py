@@ -6,16 +6,16 @@ import random
 from typing import List
 
 from botoy import GroupMsg, S
-from botoy.contrib import download, get_cache_dir
 from botoy import decorators as deco
+from botoy.contrib import download, get_cache_dir
 from pydantic import BaseModel
 
-data_path = get_cache_dir('juejuezi') / 'juejuezi.json'
+data_path = get_cache_dir("juejuezi") / "juejuezi.json"
 
 
 def download_material():
     download(
-        'https://cdn.jsdelivr.net/gh/kingcos/JueJueZiGenerator@main/materials.json',
+        "https://cdn.jsdelivr.net/gh/kingcos/JueJueZiGenerator@main/materials.json",
         data_path,
     )
 
@@ -54,20 +54,20 @@ material = Material.parse_file(data_path)
 
 class Random:
     @staticmethod
-    def word(words: List[str], nullable=False, divier='') -> str:
+    def word(words: List[str], nullable=False, divier="") -> str:
         word = random.choice(
-            [*words, *([''] * (nullable and int(len(words) / 3) or 0))]
+            [*words, *([""] * (nullable and int(len(words) / 3) or 0))]
         )
         if word:
             return word + divier
-        return ''
+        return ""
 
     @staticmethod
     def word_not_contain(words: List[str], already: str) -> str:
         word = Random.word(words)
 
-        word_set = set(word.replace(' ', ''))
-        already_set = set(already.replace(' ', ''))
+        word_set = set(word.replace(" ", ""))
+        already_set = set(already.replace(" ", ""))
 
         if len(word_set & already_set) == 0:
             return word
@@ -88,22 +88,22 @@ class Random:
 
         num = random.randint(1, 3)
         if num == 2:
-            return ''
+            return ""
         return word * num
 
 
 def generate_beginning(divider: str):
     beginning = (
         Random.word(material.beginning)
-        .replace('who', Random.word(material.who))
-        .replace('someone', Random.word(material.someone))
+        .replace("who", Random.word(material.who))
+        .replace("someone", Random.word(material.someone))
     )
     emotion = Random.word(material.emotions.emoji, True)
     return beginning + emotion + divider
 
 
 def generate_dosth(something: str, divider: str):
-    todosth = Random.word(material.todosth).replace(' ', '').replace('dosth', something)
+    todosth = Random.word(material.todosth).replace(" ", "").replace("dosth", something)
     emotion = Random.repeat(Random.word(material.emotions.emoji))
     return todosth + emotion + divider
 
@@ -111,12 +111,12 @@ def generate_dosth(something: str, divider: str):
 def praise_sth(something: str, praised_words: List[str], has_also=False) -> str:
     praise_word = Random.word(praised_words)
 
-    verb, noun = something.split(' ')[:2]
+    verb, noun = something.split(" ")[:2]
 
-    intro = Random.word(['这家的', '这家店的', '这个', '这件', '这杯'])
-    also = has_also and '也' or ''
+    intro = Random.word(["这家的", "这家店的", "这个", "这件", "这杯"])
+    also = has_also and "也" or ""
 
-    praise_word.replace('dosth', verb)
+    praise_word.replace("dosth", verb)
 
     return intro + noun + also + praise_word
 
@@ -161,19 +161,19 @@ def generate(something: str) -> str:
 
 # bot
 @deco.ignore_botself
-@deco.startswith('绝绝子')
+@deco.startswith("绝绝子")
 def receive_group_msg(ctx: GroupMsg):
     do = ctx.Content[3:].strip()
     if not do:
         return
 
-    if do == '更新':
+    if do == "更新":
         try:
             download_material()
         except Exception:
-            S.bind(ctx).text('下载出错')
+            S.bind(ctx).text("下载出错")
         else:
-            S.bind(ctx).text('好了，没事不要老更新')
+            S.bind(ctx).text("好了，没事不要老更新")
     else:
         try:
             sentence = generate(do)
@@ -185,4 +185,4 @@ def receive_group_msg(ctx: GroupMsg):
 
 if __name__ == "__main__":
     for _ in range(3):
-        print(generate('想 躺平'))
+        print(generate("想 躺平"))
