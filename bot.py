@@ -1,6 +1,5 @@
-from botoy import Botoy, jconfig
+from botoy import Botoy, S, jconfig
 from botoy.decorators import equal_content, ignore_botself
-from botoy.sugar import Text
 
 qq = jconfig.qq
 bot = Botoy(qq=qq, use_plugins=True)
@@ -16,7 +15,7 @@ def group_mid(ctx):
 @ignore_botself
 @equal_content("帮助")
 def help(_):
-    Text(bot.plugin_help)
+    S.text(bot.plugMgr.help)
 
 
 if __name__ == "__main__":
