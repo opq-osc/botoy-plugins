@@ -1,8 +1,9 @@
-from botoy import Botoy, S, jconfig
+import asyncio
+from botoy import AsyncBotoy, S, jconfig
 from botoy.decorators import equal_content, ignore_botself
 
 qq = jconfig.qq
-bot = Botoy(qq=qq, use_plugins=True)
+bot = AsyncBotoy(qq=qq, use_plugins=True)
 
 
 @bot.group_context_use
@@ -19,4 +20,4 @@ def help(_):
 
 
 if __name__ == "__main__":
-    bot.run()
+    asyncio.run(bot.run())
