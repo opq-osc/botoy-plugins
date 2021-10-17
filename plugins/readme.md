@@ -39,8 +39,9 @@
 * [moegirl(萌娘百科)](#moegirl萌娘百科)
 * [yesno(是或否)](#yesno是或否)
 * [genshin_calendar(原神活动日历)](#genshin_calendar原神活动日历)
+* [peep(窥屏检测)](#peep窥屏检测)
 
-<!-- Added by: wongxy, at: Wed Sep 29 20:05:25 CST 2021 -->
+<!-- Added by: wongxy, at: Sun Oct 17 20:25:27 CST 2021 -->
 
 <!--te-->
 
@@ -342,3 +343,19 @@ fork 自[NepPure/genshin_calendar](https://github.com/NepPure/genshin_calendar)
 原神日历 on/off : 订阅/取消订阅指定服务器的日历推送
 原神日历 time 时:分 : 设置日历推送时间
 原神日历 status : 查看本群日历推送设置
+
+# peep(窥屏检测)
+
+发送 谁在窥屏+{可选检测时间}
+
+依赖: `pip install ua-parser`
+
+botoy.json 配置
+
+```jsonc
+{
+  "ip_tracker_api": "" // 服务端地址
+}
+```
+
+服务端请自行搭建，[IPTrackerServer](https://github.com/opq-osc/IPTrackerServer)
