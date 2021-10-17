@@ -7,11 +7,11 @@ from botoy import decorators as deco
 
 
 @deco.ignore_botself
-@deco.startswith('yesno')
+@deco.startswith("yesno")
 def receive_group_msg(_):
     try:
-        data = httpx.get('https://yesno.wtf/api', timeout=20).json()
+        data = httpx.get("https://yesno.wtf/api", timeout=20).json()
     except Exception:
         pass
     else:
-        S.image(data['image'], data['answer'])
+        S.image(data["image"], data["answer"])
