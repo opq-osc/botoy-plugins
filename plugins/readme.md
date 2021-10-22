@@ -41,8 +41,9 @@
 - [yesno(是或否)](#yesno是或否)
 - [genshin_calendar(原神活动日历)](#genshin_calendar原神活动日历)
 - [peep(窥屏检测)](#peep窥屏检测)
+- [sese(不可以色色)](#sese不可以色色)
 
-<!-- Added by: wongxy, at: Sun Oct 17 20:25:27 CST 2021 -->
+<!-- Added by: wongxy, at: Fri Oct 22 23:03:38 CST 2021 -->
 
 <!--te-->
 
@@ -362,3 +363,13 @@ botoy.json 配置
 服务端请自行搭建，[IPTrackerServer](https://github.com/opq-osc/IPTrackerServer)
 
 插件参考参考自：[窥屏检测.lua](https://github.com/opq-osc/lua-plugins/blob/master/%E7%AA%A5%E5%B1%8F%E6%A3%80%E6%B5%8B.lua)
+
+# sese(不可以色色)
+
+类似那个小娃娃敲打的表情包
+
+发送 sese + 文字 即可
+
+需要`ffmpeg` 加入环境变量
+
+思路来源同社区插件 [PHP sese](https://github.com/opq-osc/OPQ-PHP-plugins/tree/main/public/templates/sese)
