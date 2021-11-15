@@ -634,8 +634,12 @@ def receive_group_msg(ctx: GroupMsg):
     except Exception:
         num = random.randint(1, 6)
 
+    if num < 0:
+        S.text('sb')
+        return
     if num > 119:
-        S.text('强子过多')
+        S.text('强子过多, 呼叫119吧')
+        return
 
     小强们 = [来只小强() for _ in range(num)]
     for 一只小强 in 小强们:
