@@ -33,10 +33,10 @@ class TemporaryFile:
             pass
 
 
-mp4 = get_cache_dir('bot_sese') / 'kick.mp4'
+mp4 = get_cache_dir("bot_sese") / "kick.mp4"
 if not mp4.is_file():
     download(
-        'https://cdn.jsdelivr.net/gh/opq-osc/OPQ-PHP-plugins@main/public/templates/sese/template-small.mp4',
+        "https://cdn.jsdelivr.net/gh/opq-osc/OPQ-PHP-plugins@main/public/templates/sese/template-small.mp4",
         mp4,
     )
 
@@ -45,20 +45,20 @@ if not mp4.is_file():
 @deco.on_regexp(r"sese(\w+)")
 def receive_group_msg(ctx: GroupMsg):
     text: str = ctx._match.group(1).strip()
-    with TemporaryFile('.ass') as template:
+    with TemporaryFile(".ass") as template:
         template.write_text(TEMPLATE.format(text=text))
-        with TemporaryFile('.gif') as gif:
+        with TemporaryFile(".gif") as gif:
             process = subprocess.run(
                 [
-                    'ffmpeg',
-                    '-y',
-                    '-i',
+                    "ffmpeg",
+                    "-y",
+                    "-i",
                     mp4,
-                    '-vf',
-                    f'ass={template}',
+                    "-vf",
+                    f"ass={template}",
                     gif,
-                    '-loglevel',
-                    'quiet',
+                    "-loglevel",
+                    "quiet",
                 ]
             )
             if process.returncode == 0 and gif.read_bytes():

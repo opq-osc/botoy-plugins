@@ -42,8 +42,9 @@
 - [genshin_calendar(原神活动日历)](#genshin_calendar原神活动日历)
 - [peep(窥屏检测)](#peep窥屏检测)
 - [sese(不可以色色)](#sese不可以色色)
+- [cockroach(来点小强)](#cockroach来点小强)
 
-<!-- Added by: wongxy, at: Fri Oct 22 23:03:38 CST 2021 -->
+<!-- Added by: wongxy, at: Mon Nov 15 21:46:24 CST 2021 -->
 
 <!--te-->
 
@@ -373,3 +374,11 @@ botoy.json 配置
 需要`ffmpeg` 加入环境变量
 
 思路来源同社区插件 [PHP sese](https://github.com/opq-osc/OPQ-PHP-plugins/tree/main/public/templates/sese)
+
+# cockroach(来点小强)
+
+头像爬几只小强
+
+发送 来点小强 即可，后面加数字可以指定数量
+
+创意来自[kosakarin/hoshino_big_cockroach](https://github.com/kosakarin/hoshino_big_cockroach)，逻辑按自己来的
