@@ -382,3 +382,9 @@ botoy.json 配置
 发送 来点小强 即可，后面加数字可以指定数量
 
 创意来自[kosakarin/hoshino_big_cockroach](https://github.com/kosakarin/hoshino_big_cockroach)，逻辑按自己来的
+
+# github_thumbnail(GitHub 缩略图)
+
+发送 github 链接即可
+
+`https://github.com/`可省略

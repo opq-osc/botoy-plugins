@@ -635,10 +635,10 @@ def receive_group_msg(ctx: GroupMsg):
         num = random.randint(1, 6)
 
     if num < 0:
-        S.text('sb')
+        S.text("sb")
         return
     if num > 119:
-        S.text('强子过多, 呼叫119吧')
+        S.text("强子过多, 呼叫119吧")
         return
 
     小强们 = [来只小强() for _ in range(num)]
