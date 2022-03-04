@@ -26,7 +26,7 @@ def dp(target):
     代价 = {-1: 0}
     记录 = {-1: []}
     for x in range(len(target)):
-        代价[x] = 2 ** 32
+        代价[x] = 2**32
         for k in range(n, 0, -1):
             s = x - k + 1
             if s < 0:

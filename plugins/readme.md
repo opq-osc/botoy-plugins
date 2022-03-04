@@ -389,3 +389,9 @@ botoy.json 配置
 发送 github 链接即可
 
 `https://github.com/`可省略
+
+# sbqb(搜表情包)
+
+搜表情包
+
+发送 表情包+{关键词} 如 表情包罗翔
