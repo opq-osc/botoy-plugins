@@ -27,8 +27,10 @@ def _():
         random.shuffle(imgs)
         imgs = imgs[:10]
     except Exception:
-        pass
+        handler.finish("出错啦，没有找到表情包")
     else:
+        if not imgs:
+            handler.finish("没有找到表情包")
         choose = session.choose(imgs, key=lambda img: img["describe"])
         if choose:
             session.send_pic(choose[0]["img"])
