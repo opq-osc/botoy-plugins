@@ -2,6 +2,8 @@
 发送 表情包+{关键词} 如 表情包罗翔
 """
 
+import random
+
 import httpx
 from botoy.decorators import ignore_botself, on_regexp
 from botoy.session import SessionHandler, ctx, session
@@ -21,7 +23,9 @@ def _():
         resp.raise_for_status()
         data = resp.json()
         assert data["code"] == 200
-        imgs = data["data_img"][:10]
+        imgs = data["data_img"]
+        random.shuffle(imgs)
+        imgs = imgs[:10]
     except Exception:
         pass
     else:
