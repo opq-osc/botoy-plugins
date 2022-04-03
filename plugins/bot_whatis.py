@@ -1,8 +1,9 @@
 """查询缩写意思, 格式: 查询+{缩写} 或 查询"""
 import httpx
+from botoy import GroupMsg, Text
 from botoy.collection import MsgTypes
 from botoy.decorators import ignore_botself, startswith, these_msgtypes
-from botoy.session import SessionHandler, ctx, session
+import re
 
 
 def whatis(text):
@@ -24,23 +25,13 @@ def whatis(text):
         return f"【{name}】{trans_str}"
 
 
-whatis_handler = SessionHandler(
-    ignore_botself,
-    these_msgtypes(MsgTypes.TextMsg),
-    startswith("查询"),
-).receive_group_msg()
-
-
-@whatis_handler.handle
-def _():
-    # 如果查询指令后跟了内容就直接用这个了
-    word: str = ctx.Content[2:]
-    if not word:
-        word = session.want("word", "你想要查什么呢?发送一个缩写试试~")
-
-    if word is None:  # 超时了，默默退出吧
-        whatis_handler.finish()
-
-    result = whatis(word)
-    if result:
-        whatis_handler.finish(result)
+@ignore_botself
+def receive_group_msg(ctx: GroupMsg):
+    try:
+        word = re.findall(
+            r"[查|问|这|这个]{0,}(.*?)[是|叫|又是]{0,}[啥|什么|啥子]{1,}[意思|?]{0,}", ctx.Content
+        )[0]
+    except Exception:
+        pass
+    else:
+        Text(whatis(word))

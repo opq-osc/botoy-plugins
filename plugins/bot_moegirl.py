@@ -1,5 +1,5 @@
 """萌娘百科
-发送：萌娘百科+{关键字}
+发送：萌娘百科 {关键字}
 """
 from urllib.parse import quote_plus
 
@@ -26,7 +26,7 @@ def search(keyword):
 
 
 @deco.ignore_botself
-@deco.on_regexp(r"^萌娘百科(\w+)")
+@deco.on_regexp(r"^萌娘百科 (\w+)")
 def receive_group_msg(ctx):
     text = search(ctx._match.group(1))
     if text:

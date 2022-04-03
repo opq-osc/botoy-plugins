@@ -1,6 +1,6 @@
 """不能好好说话
 
-发送 说个屁+{缩写}  如：说个屁ynmm
+发送 乱说 {缩写}  如：乱说 ynmm
 """
 import pickle
 
@@ -48,6 +48,6 @@ def dp(target):
 
 
 @deco.ignore_botself
-@deco.startswith("说个屁")
+@deco.startswith("乱说")
 def receive_group_msg(ctx: GroupMsg):
-    S.bind(ctx).text(dp(ctx.Content[3:]))
+    S.bind(ctx).text(dp(ctx.Content[2:]))

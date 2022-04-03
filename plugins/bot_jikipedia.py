@@ -47,7 +47,7 @@ def receive_group_msg(ctx: GroupMsg):
         entries = search(word)
         if entries:
             entry = entries[0]
-            msg = "是在查梗吗？：{word}\n\n标题：【{title}】\n\n标签：{tags}\n\n正文：{text}".format(
+            msg = "【{word}】\n\n：{text}".format(
                 word=word,
                 title=entry.title,
                 tags="、".join(entry.tags),

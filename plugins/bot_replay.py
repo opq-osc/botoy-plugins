@@ -5,7 +5,7 @@ from botoy.parser import group as gp
 
 
 @ignore_botself
-@startswith("复读机")
+@startswith("复读 ")
 def receive_group_msg(ctx: GroupMsg):
 
     text = ctx.Content[3:]

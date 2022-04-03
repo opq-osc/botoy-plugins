@@ -1,6 +1,6 @@
 """绝绝子生成器
 1. 绝绝子更新:  更新词库
-2. 绝绝子+{内容}: 内容请使用空格间隔动词与名词，例如：喝奶茶 => 喝 奶茶
+2. 绝绝子 {内容}: 内容请使用空格间隔动词与名词，例如：喝奶茶 => 喝 奶茶
 """
 import random
 from typing import List
@@ -161,9 +161,9 @@ def generate(something: str) -> str:
 
 # bot
 @deco.ignore_botself
-@deco.startswith("绝绝子")
+@deco.startswith("绝绝子 ")
 def receive_group_msg(ctx: GroupMsg):
-    do = ctx.Content[3:].strip()
+    do = ctx.Content[4:].strip()
     if not do:
         return
 

@@ -8,9 +8,9 @@ from botoy.sugar import Text
 
 @ignore_botself
 @these_msgtypes(MsgTypes.TextMsg)
-@startswith("拼音")
+@startswith("拼音 ")
 def receive_group_msg(ctx: GroupMsg):
-    word = ctx.Content[2:]
+    word = ctx.Content[3:]
     if word:
         try:
             resp = httpx.get(
